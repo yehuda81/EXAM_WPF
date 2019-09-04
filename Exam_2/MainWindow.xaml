@@ -1,0 +1,35 @@
+﻿<Window x:Class="Exam_2.MainWindow" WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exam_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <TextBlock x:Name="questionTXT" FontSize="30" TextAlignment="Center" HorizontalAlignment="Left" Margin="225,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="284"
+                   Text="{Binding Exercise}"/>
+        <Button x:Name="button1" FontSize="20" HorizontalAlignment="Left" Margin="225,150,0,0"  VerticalAlignment="Top" Height="50" Width="104"
+                Content="{Binding Button1}" Click="button1_Click"
+                Command="{Binding MyDelegate}"
+                IsEnabled="{Binding ButtonIsEnabled}"/>
+        <Button x:Name="button2" FontSize="20" HorizontalAlignment="Left" Margin="405,150,0,0"  VerticalAlignment="Top" Height="50" Width="104"
+                Content="{Binding Button2}" Click="button2_Click"
+                Command="{Binding MyDelegate}"
+                IsEnabled="{Binding ButtonIsEnabled}"/>
+        <Button x:Name="button3" FontSize="20" HorizontalAlignment="Left" Margin="225,255,0,0"  VerticalAlignment="Top" Height="50" Width="104" RenderTransformOrigin="0.381,1.6"
+                Content="{Binding Button3}" Click="button3_Click"
+                Command="{Binding MyDelegate}"
+                IsEnabled="{Binding ButtonIsEnabled}"/>
+        <Button x:Name="button4" FontSize="20" HorizontalAlignment="Left" Margin="405,255,0,0"  VerticalAlignment="Top" Height="50" Width="104"
+                Content="{Binding Button4}" Click="button4_Click"
+                Command="{Binding MyDelegate}"
+                IsEnabled="{Binding ButtonIsEnabled}"
+                />
+        <TextBlock FontSize="30" HorizontalAlignment="Left" Margin="505,355,0,0" Text="Time left:" TextWrapping="Wrap"  VerticalAlignment="Top" Height="56" Width="130" ></TextBlock>
+        <TextBlock FontSize="30" x:Name="timerTXT" HorizontalAlignment="Left" Margin="635,355,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="56" Width="158"/>
+
+    </Grid>
+
+</Window>
