@@ -1,0 +1,22 @@
+﻿<Window x:Class="Exam_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exam_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="120,170,0,0" TextWrapping="Wrap" Text="URL:" VerticalAlignment="Top" Height="35" Width="95"/>
+        <TextBlock HorizontalAlignment="Left" Margin="120,250,0,0" TextWrapping="Wrap" Text="Size:" VerticalAlignment="Top" Height="35" Width="95"/>
+        <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="35" Margin="250,170,0,0" TextWrapping="Wrap" Text="{Binding URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="340"/>
+        <TextBlock x:Name="SizeBox" HorizontalAlignment="Left" Height="35" Margin="250,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" Text="{Binding Size}"/>
+        <Button x:Name="Button" Content="Start" HorizontalAlignment="Left" Margin="120,315,0,0" VerticalAlignment="Top" Width="125" Height="30"
+                Command="{Binding MyDelegate }"
+                IsEnabled="{Binding ButtonIsEnabled}" Click="Button_Click"
+                />
+        <TextBlock x:Name="timerTXT" HorizontalAlignment="Left" Margin="495,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="26" Width="95"/>
+
+    </Grid>
+</Window>
