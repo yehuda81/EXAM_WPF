@@ -23,7 +23,9 @@ namespace Exam_3
     public partial class MainWindow : Window
     {
         bool Click;
-        private MainWindowViewModel vm;       
+        private MainWindowViewModel vm;
+        int counter = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,24 +36,24 @@ namespace Exam_3
         private void ElpsedEventHandler(object sender, ElapsedEventArgs e)
         {         
             
-            Action a = new Action(() => timerTXT.Text = $"{e.SignalTime.Millisecond}");
+            Action a = new Action(() => timerTXT.Text = $"{++counter}");
             SafeInvoke(a);                                   
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Click = true;            
+            Click = true;
+
+            Timer timer = new Timer(10);
+            timer.Elapsed += ElpsedEventHandler;
+            timer.Start();
+            counter = 0;
             Task.Run(() =>
-            {               
-                Timer timer = new Timer(1);
-                timer.Elapsed += ElpsedEventHandler;
-                timer.Start();
-            });
-            Task.Run(() =>
-            {               
+            {
                 string size = vm.ReadUrl2();
-                Action action = new Action(() => SizeBox.Text = size);                
-                SafeInvoke(action);                              
+                Action action = new Action(() => SizeBox.Text = size);
+                SafeInvoke(action);
+                timer.Stop();
             });
         }
         public void SafeInvoke(Action action)
